@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glass Notes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+    <style>
+      body {
+        /* Default Font, can be overridden by settings */
+        font-family: 'Dancing Script', cursive;
+        background-color: #F8F8F8; /* Off-white background */
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+      .text-gradient {
+        background: linear-gradient(45deg, #f3ec78, #af4261, #9b59b6, #3498db);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 200% 200%;
+        animation: gradient 5s ease infinite;
+      }
+      .background-container {
+        transition: background-image 1.5s ease-in-out, background-color 1.5s ease-in-out;
+      }
+      @keyframes gradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      /* Custom scrollbar for a more aesthetic look */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.4);
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 0, 0, 0.6);
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      @keyframes slideUp {
+        from { transform: translateY(20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.3s ease-out forwards;
+      }
+      .animate-slide-up {
+        animation: slideUp 0.3s ease-out forwards;
+      }
+      
+      /* View Transitions */
+      @keyframes slideInFromRight { from { transform: translateX(100%); } to { transform: translateX(0); } }
+      @keyframes slideOutToLeft { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+      @keyframes slideInFromLeft { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+      @keyframes slideOutToRight { from { transform: translateX(0); } to { transform: translateX(100%); } }
+
+      .animate-in-forward { animation: slideInFromRight 0.35s ease-out forwards; }
+      .animate-out-forward { animation: slideOutToLeft 0.35s ease-out forwards; }
+      .animate-in-backward { animation: slideInFromLeft 0.35s ease-out forwards; }
+      .animate-out-backward { animation: slideOutToRight 0.35s ease-out forwards; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
